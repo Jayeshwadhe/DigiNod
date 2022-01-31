@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  ngnix_load_balancer:
+    image: nginx
+    volumes:
+      -'./nginx/default.conf:etc/ngnix/ngnix.conf'
+      ports:
+        '8000:80'
+
+
+  auth:
+      image: auth-app
+      build: ./authservices
+      ports:
+        - "3051:3051"
+
+  admin:
+      image: admin-app
+      build: ./adminservices
+      ports:
+        - "3052:3052"
+    
+  user:
+      image: user-app
+      build: ./userservices
+      ports:
+        - "3053:3053"
+

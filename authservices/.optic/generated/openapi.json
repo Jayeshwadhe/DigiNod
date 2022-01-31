@@ -1,0 +1,480 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Optic Generated OpenAPI",
+    "version": "1.0.0"
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/api/auth/signin": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "password",
+                  "email"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "type": "object",
+                      "properties": {
+                        "isSplit": {
+                          "type": "boolean"
+                        },
+                        "ROIForAggregator": {
+                          "nullable": true
+                        },
+                        "updatedBy": {
+                          "type": "string"
+                        },
+                        "passwordUpdatedOn": {
+                          "type": "string"
+                        },
+                        "mobileNumber": {
+                          "type": "number"
+                        },
+                        "updatedAt": {
+                          "type": "string"
+                        },
+                        "role": {
+                          "type": "string"
+                        },
+                        "organizationId": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "lastLogin": {
+                          "type": "string"
+                        },
+                        "isDeleted": {
+                          "type": "boolean"
+                        },
+                        "isActive": {
+                          "type": "boolean"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "street": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "string"
+                              },
+                              "pinCode": {
+                                "type": "number"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              },
+                              "_id": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "street",
+                              "state",
+                              "pinCode",
+                              "country",
+                              "city",
+                              "_id"
+                            ]
+                          }
+                        },
+                        "accessControl": {
+                          "type": "number"
+                        },
+                        "_id": {
+                          "type": "string"
+                        },
+                        "__v": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "updatedBy",
+                        "passwordUpdatedOn",
+                        "mobileNumber",
+                        "updatedAt",
+                        "role",
+                        "organizationId",
+                        "name",
+                        "lastLogin",
+                        "isDeleted",
+                        "isActive",
+                        "email",
+                        "createdAt",
+                        "address",
+                        "_id",
+                        "__v"
+                      ]
+                    },
+                    "token": {
+                      "type": "string"
+                    },
+                    "passwordExpired": {
+                      "type": "boolean"
+                    },
+                    "loginDetails": {
+                      "type": "object",
+                      "properties": {
+                        "productList": {
+                          "type": "array",
+                          "items": {}
+                        },
+                        "organizationName": {
+                          "type": "string"
+                        },
+                        "organizationData": {
+                          "type": "object",
+                          "properties": {
+                            "createdAt": {
+                              "type": "string"
+                            },
+                            "orgSidebar": {
+                              "type": "boolean"
+                            },
+                            "updatedAt": {
+                              "type": "string"
+                            },
+                            "typeOfOrganization": {
+                              "type": "string"
+                            },
+                            "nameOfOrganization": {
+                              "type": "string"
+                            },
+                            "isDeleted": {
+                              "type": "boolean"
+                            },
+                            "isActive": {
+                              "type": "boolean"
+                            },
+                            "email": {
+                              "type": "string"
+                            },
+                            "dateOfRegistration": {
+                              "type": "string"
+                            },
+                            "contactNumber": {
+                              "type": "number"
+                            },
+                            "_id": {
+                              "type": "string"
+                            },
+                            "__v": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "createdAt",
+                            "orgSidebar",
+                            "updatedAt",
+                            "typeOfOrganization",
+                            "nameOfOrganization",
+                            "isDeleted",
+                            "isActive",
+                            "email",
+                            "dateOfRegistration",
+                            "contactNumber",
+                            "_id",
+                            "__v"
+                          ]
+                        },
+                        "orgSidebar": {
+                          "type": "boolean"
+                        }
+                      },
+                      "required": [
+                        "productList",
+                        "organizationName",
+                        "organizationData",
+                        "orgSidebar"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "user",
+                    "token",
+                    "passwordExpired",
+                    "loginDetails"
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "errors"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/overview/getodash": {
+      "get": {
+        "responses": {
+          "404": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "errors"
+                  ]
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/api/auth/{signup}": {
+      "parameters": [
+        {
+          "name": "signup",
+          "in": "path",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "role": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "organizationId": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "mobileNumber": {
+                    "type": "number"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "address": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "street": {
+                          "type": "string"
+                        },
+                        "state": {
+                          "type": "string"
+                        },
+                        "pinCode": {
+                          "type": "number"
+                        },
+                        "country": {
+                          "type": "string"
+                        },
+                        "city": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "street",
+                        "state",
+                        "pinCode",
+                        "country",
+                        "city"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "role",
+                  "password",
+                  "organizationId",
+                  "name",
+                  "mobileNumber",
+                  "email",
+                  "address"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "validation": {
+                      "type": "object",
+                      "properties": {
+                        "body": {
+                          "type": "object",
+                          "properties": {
+                            "source": {
+                              "type": "string"
+                            },
+                            "message": {
+                              "type": "string"
+                            },
+                            "keys": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "source",
+                            "message",
+                            "keys"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "body"
+                      ]
+                    },
+                    "statusCode": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "error": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "validation",
+                    "statusCode",
+                    "message",
+                    "error"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "",
+            "content": {}
+          }
+        }
+      }
+    }
+  }
+}

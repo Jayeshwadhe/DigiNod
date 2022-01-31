@@ -1,0 +1,2218 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+      "title": "DigiNode",
+      "version": "1.0.0",
+      "description": "DigiNode admin panel"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3062",
+            "description": "Local server"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+          "bearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+          }
+        }
+      },
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],	
+    "paths": {
+      "/api/admin/getAllUsers": {
+            "get": {
+            "tags": ["Admin"],
+            "parameters": [           
+              {
+                  "name": "pageNumber & pageSize", 
+                  "in": "query",
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "pageNumber": {
+                          "type": "string"
+                        },
+                      "pageSize": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": true, 
+                  "description": "Please enter page number and page size"
+                }],
+              "responses": {
+                "201": {
+                  "description": "",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "users": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "updatedBy": {
+                                      "type": "string"
+                                    },
+                                    "updatedAt": {
+                                      "type": "string"
+                                    },
+                                    "testUser": {
+                                      "type": "boolean"
+                                    },
+                                    "salt": {
+                                      "type": "string"
+                                    },
+                                    "role": {
+                                      "type": "string"
+                                    },
+                                    "passwordUpdatedOn": {
+                                      "type": "string"
+                                    },
+                                    "password": {
+                                      "type": "string"
+                                    },
+                                    "organizationId": {
+                                      "type": "string"
+                                    },
+                                    "organizationData": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "updatedAt": {
+                                            "type": "string"
+                                          },
+                                          "typeOfOrganization": {
+                                            "type": "string"
+                                          },
+                                          "testOrg": {
+                                            "type": "boolean"
+                                          },
+                                          "orgSidebar": {
+                                            "type": "boolean"
+                                          },
+                                          "nameOfOrganization": {
+                                            "type": "string"
+                                          },
+                                          "isDeleted": {
+                                            "type": "boolean"
+                                          },
+                                          "isActive": {
+                                            "type": "boolean"
+                                          },
+                                          "email": {
+                                            "type": "string"
+                                          },
+                                          "createdAt": {
+                                            "type": "string"
+                                          },
+                                          "contactNumber": {
+                                            "type": "number"
+                                          },
+                                          "_id": {
+                                            "type": "string"
+                                          },
+                                          "__v": {
+                                            "type": "number"
+                                          }
+                                        },
+                                        "required": [
+                                          "updatedAt",
+                                          "typeOfOrganization",
+                                          "testOrg",
+                                          "orgSidebar",
+                                          "nameOfOrganization",
+                                          "isDeleted",
+                                          "isActive",
+                                          "email",
+                                          "createdAt",
+                                          "contactNumber",
+                                          "_id",
+                                          "__v"
+                                        ]
+                                      }
+                                    },
+                                    "name": {
+                                      "type": "string"
+                                    },
+                                    "mobileNumber": {
+                                      "type": "number"
+                                    },
+                                    "isSplit": {
+                                      "type": "boolean"
+                                    },
+                                    "isDeleted": {
+                                      "type": "boolean"
+                                    },
+                                    "isActive": {
+                                      "type": "boolean"
+                                    },
+                                    "email": {
+                                      "type": "string"
+                                    },
+                                    "createdAt": {
+                                      "type": "string"
+                                    },
+                                    "address": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "street": {
+                                            "type": "string"
+                                          },
+                                          "state": {
+                                            "type": "string"
+                                          },
+                                          "pinCode": {
+                                            "type": "number"
+                                          },
+                                          "country": {
+                                            "type": "string"
+                                          },
+                                          "city": {
+                                            "type": "string"
+                                          },
+                                          "_id": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "street",
+                                          "state",
+                                          "pinCode",
+                                          "country",
+                                          "city",
+                                          "_id"
+                                        ]
+                                      }
+                                    },
+                                    "_id": {
+                                      "type": "string"
+                                    },
+                                    "__v": {
+                                      "type": "number"
+                                    },
+                                    "ROIForAggregator": {
+                                      "nullable": true
+                                    }
+                                  },
+                                  "required": [
+                                    "updatedAt",
+                                    "salt",
+                                    "role",
+                                    "password",
+                                    "organizationId",
+                                    "organizationData",
+                                    "name",
+                                    "mobileNumber",
+                                    "isDeleted",
+                                    "isActive",
+                                    "email",
+                                    "createdAt",
+                                    "address",
+                                    "_id",
+                                    "__v"
+                                  ]
+                                }
+                              },
+                              "numberOfPages": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "users",
+                              "numberOfPages"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "data"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "401": {
+                  "description": "",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "500": {
+                  "description": "",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "errors": {
+                            "type": "object",
+                            "properties": {
+                              "message": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "message"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "errors"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+      },
+      "/api/admin/getUserByIdToAdmin": {
+        "get": {
+          "tags": ["Admin"],
+          "description": "Get user by admin", 
+          "operationId": "getUser", 
+          "parameters": [
+            {
+              "name": "id", 
+              "in": "query",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "_id": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": true, 
+              "description": "Please enter user id"
+            }],
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "username": {
+                              "type": "string"
+                            },
+                            "userType": {
+                              "type": "number"
+                            },
+                            "updatedBy": {
+                              "type": "string"
+                            },
+                            "updatedAt": {
+                              "type": "string"
+                            },
+                            "salt": {
+                              "type": "string"
+                            },
+                            "password": {
+                              "type": "string"
+                            },
+                            "orgData": {
+                              "type": "array",
+                              "items": {}
+                            },
+                            "isActive": {
+                              "type": "boolean"
+                            },
+                            "emailHash": {
+                              "type": "string"
+                            },
+                            "createdAt": {
+                              "type": "string"
+                            },
+                            "contactPerson": {
+                              "type": "string"
+                            },
+                            "confirmPassword": {
+                              "type": "string"
+                            },
+                            "aggregatorId": {
+                              "type": "string"
+                            },
+                            "_id": {
+                              "type": "string"
+                            },
+                            "__v": {
+                              "type": "number"
+                            },
+                            "UtilizedAmount": {
+                              "type": "number"
+                            },
+                            "TotalNoOfClaimProcessed": {
+                              "type": "number"
+                            },
+                            "State": {
+                              "type": "string"
+                            },
+                            "Role": {
+                              "type": "string"
+                            },
+                            "Repayment": {
+                              "type": "number"
+                            },
+                            "Pincode": {
+                              "type": "string"
+                            },
+                            "PANNumber": {
+                              "type": "string"
+                            },
+                            "NoOfTPAsAssociated": {
+                              "type": "number"
+                            },
+                            "NoOfDirectInsuranceCompaniesAssociated": {
+                              "type": "number"
+                            },
+                            "NoOfClaimProcessedInAYear": {
+                              "type": "number"
+                            },
+                            "NameOfTheBank": {
+                              "type": "string"
+                            },
+                            "NameOfDirector": {
+                              "type": "array",
+                              "items": {}
+                            },
+                            "Name": {
+                              "type": "string"
+                            },
+                            "MobileNumber": {
+                              "type": "number"
+                            },
+                            "LenderTenure": {
+                              "type": "number"
+                            },
+                            "LenderROI": {
+                              "type": "number"
+                            },
+                            "LenderName": {
+                              "type": "string"
+                            },
+                            "LenderLTV": {
+                              "type": "number"
+                            },
+                            "LenderId": {
+                              "type": "string"
+                            },
+                            "LStatus": {
+                              "type": "string"
+                            },
+                            "LComment": {
+                              "type": "string"
+                            },
+                            "IFSCcode": {
+                              "type": "string"
+                            },
+                            "GSTNumber": {
+                              "type": "string"
+                            },
+                            "ExistingCreditLimit": {
+                              "type": "number"
+                            },
+                            "DoYouHaveAnExistingWorkingCapitalLoan": {
+                              "type": "string"
+                            },
+                            "DirectorPANNumber": {
+                              "type": "array",
+                              "items": {}
+                            },
+                            "DirectorEmail": {
+                              "type": "array",
+                              "items": {}
+                            },
+                            "DateOfRegistration": {
+                              "type": "string"
+                            },
+                            "Country": {
+                              "type": "string"
+                            },
+                            "ContactNumberOfDirector": {
+                              "type": "array",
+                              "items": {}
+                            },
+                            "City": {
+                              "type": "string"
+                            },
+                            "CINNumber": {
+                              "type": "string"
+                            },
+                            "Branch": {
+                              "type": "string"
+                            },
+                            "AverageTicketSizeOfTheClaims": {
+                              "type": "number"
+                            },
+                            "AvailableLimit": {
+                              "type": "number"
+                            },
+                            "Address": {
+                              "type": "string"
+                            },
+                            "AccountNumber": {
+                              "type": "number"
+                            },
+                            "AccountName": {
+                              "type": "string"
+                            },
+                            "AadharDocUrl": {
+                              "type": "array",
+                              "items": {}
+                            }
+                          },
+                          "required": [
+                            "username",
+                            "userType",
+                            "updatedBy",
+                            "updatedAt",
+                            "salt",
+                            "password",
+                            "orgData",
+                            "isActive",
+                            "emailHash",
+                            "createdAt",
+                            "contactPerson",
+                            "confirmPassword",
+                            "aggregatorId",
+                            "_id",
+                            "__v",
+                            "UtilizedAmount",
+                            "TotalNoOfClaimProcessed",
+                            "State",
+                            "Role",
+                            "Repayment",
+                            "Pincode",
+                            "PANNumber",
+                            "NoOfTPAsAssociated",
+                            "NoOfDirectInsuranceCompaniesAssociated",
+                            "NoOfClaimProcessedInAYear",
+                            "NameOfTheBank",
+                            "NameOfDirector",
+                            "Name",
+                            "MobileNumber",
+                            "LenderTenure",
+                            "LenderROI",
+                            "LenderName",
+                            "LenderLTV",
+                            "LenderId",
+                            "LStatus",
+                            "LComment",
+                            "IFSCcode",
+                            "GSTNumber",
+                            "ExistingCreditLimit",
+                            "DoYouHaveAnExistingWorkingCapitalLoan",
+                            "DirectorPANNumber",
+                            "DirectorEmail",
+                            "DateOfRegistration",
+                            "Country",
+                            "ContactNumberOfDirector",
+                            "City",
+                            "CINNumber",
+                            "Branch",
+                            "AverageTicketSizeOfTheClaims",
+                            "AvailableLimit",
+                            "Address",
+                            "AccountNumber",
+                            "AccountName",
+                            "AadharDocUrl"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "message"
+                    ]
+                  }
+                }
+              }
+            },
+            "502": {
+              "description": "",
+              "content": {}
+            }
+          }
+        }
+      },
+      "/api/admin/addUserByAdmin": {
+            "post": {
+            "tags": ["Admin"],
+              "requestBody": {
+                "content": {
+                  "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "role": {
+                          "type": "string"
+                        },
+                        "password": {
+                          "type": "string"
+                        },
+                        "organizationId": {
+                          "type": "string"
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "mobileNumber": {
+                          "type": "number"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "address": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "street": {
+                                "type": "string"
+                              },
+                              "state": {
+                                "type": "string"
+                              },
+                              "pinCode": {
+                                "type": "number"
+                              },
+                              "country": {
+                                "type": "string"
+                              },
+                              "city": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "street",
+                              "state",
+                              "pinCode",
+                              "country",
+                              "city"
+                            ]
+                          }
+                        }
+                      },
+                      "required": [
+                        "role",
+                        "password",
+                        "organizationId",
+                        "name",
+                        "mobileNumber",
+                        "email",
+                        "address"
+                      ]
+                    }
+                  }
+                }
+              },
+              "responses": {
+                "401": {
+                  "description": "",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "message": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "message"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+      },
+      "/api/admin/updateAggregator": {
+        "post": {
+          "tags": ["Admin"],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "noOfICompAsd": {
+                      "type": "string"
+                    },
+                    "TotalNoOfHospital": {
+                      "type": "string"
+                    },
+                    "ROIForAggregator": {
+                      "type": "string"
+                    },
+                    "NoOfTPAsAssociated": {
+                      "type": "string"
+                    },
+                    "CINNumber": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "noOfICompAsd",
+                    "TotalNoOfHospital",
+                    "ROIForAggregator",
+                    "NoOfTPAsAssociated",
+                    "CINNumber"
+                  ]
+                }
+              }
+            }
+          },
+          "responses": {
+            "400": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/admin/getMerchantList": {
+        "get": {
+         "tags": ["Admin"],
+         "parameters": [           
+            {
+                "name": "pageNumber & pageSize", 
+                "in": "query",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pageNumber": {
+                        "type": "string"
+                      },
+                    "pageSize": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": true, 
+                "description": "Please enter page number and page size"
+              }],
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "object",
+                        "properties": {
+                          "todaysCount": {
+                            "type": "number"
+                          },
+                          "todaysAmount": {
+                            "type": "number"
+                          },
+                          "numberOfPages": {
+                            "type": "number"
+                          },
+                          "merchantUserList": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "valueChanged": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "uploadPANDoc": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "uploadAadharDocs": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "uploadAadharDoc": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "updatedAt": {
+                                  "type": "string"
+                                },
+                                "createdAt": {
+                                  "type": "string"
+                                },
+                                "_id": {
+                                  "type": "string"
+                                },
+                                "__v": {
+                                  "type": "number"
+                                },
+                                "UpdatedDate": {
+                                  "type": "string"
+                                },
+                                "Status": {
+                                  "type": "string"
+                                },
+                                "State": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "Scheme": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "ReferenceName": {
+                                  "nullable": true
+                                },
+                                "ProcessingFees": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "Pincode": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "OfficeName": {
+                                  "type": "string"
+                                },
+                                "Occupation": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "MobileNumber": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "LoanAmount": {
+                                  "type": "number",
+                                  "nullable": true
+                                },
+                                "Lender": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "KOCode": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "IsException": {
+                                  "type": "boolean"
+                                },
+                                "Interest": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "IFSCCode": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "FullName": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "EmailId": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "EMIAmount": {
+                                  "type": "number",
+                                  "nullable": true
+                                },
+                                "District": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "DateOfBirth": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "CurrentAddress": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "CreatedDate": {
+                                  "type": "string"
+                                },
+                                "Country": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "City": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "Branch": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "BankAssociated": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "ApproveOrReject": {
+                                  "nullable": true
+                                },
+                                "ApplicantsPanNo": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "ApplicantsAadhaarNo": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "AlternateContactNumber": {
+                                  "type": "number",
+                                  "nullable": true
+                                },
+                                "AccountNumberForSBI": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "AccountNumber": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "AccountHolderName": {
+                                  "type": "string",
+                                  "nullable": true
+                                }
+                              },
+                              "required": [
+                                "updatedAt",
+                                "createdAt",
+                                "_id",
+                                "__v",
+                                "Occupation",
+                                "Lender",
+                                "IsException"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "todaysCount",
+                          "todaysAmount",
+                          "numberOfPages",
+                          "merchantUserList"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  }
+                }
+              }
+            },
+            "401": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "message": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "message"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },   
+      "/api/admin/getMerchantById": {
+            "get": {
+                "tags": ["Admin"],
+                "parameters": [
+               
+                    {
+                      "name": "koCode", 
+                      "in": "query",
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "koCode": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": true, 
+                      "description": "Please enter koCode"
+                    }],
+              "responses": {
+                "201": {
+                  "description": "",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "data": {
+                            "type": "object",
+                            "properties": {
+                              "merchantUser": {
+                                "type": "object",
+                                "properties": {
+                                  "valueChanged": {
+                                    "nullable": true
+                                  },
+                                  "uploadPANDoc": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "uploadAadharDocs": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "uploadAadharDoc": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "updatedAt": {
+                                    "type": "string"
+                                  },
+                                  "createdAt": {
+                                    "type": "string"
+                                  },
+                                  "_id": {
+                                    "type": "string"
+                                  },
+                                  "__v": {
+                                    "type": "number"
+                                  },
+                                  "UpdatedDate": {
+                                    "type": "string"
+                                  },
+                                  "Status": {
+                                    "type": "string"
+                                  },
+                                  "State": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "Scheme": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "ReferenceName": {
+                                    "nullable": true
+                                  },
+                                  "ProcessingFees": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "Pincode": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "OfficeName": {
+                                    "type": "string"
+                                  },
+                                  "Occupation": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "MobileNumber": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "LoanAmount": {
+                                    "type": "number",
+                                    "nullable": true
+                                  },
+                                  "Lender": {
+                                    "nullable": true
+                                  },
+                                  "KOCode": {
+                                    "type": "string"
+                                  },
+                                  "IsException": {
+                                    "type": "boolean"
+                                  },
+                                  "Interest": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "IFSCCode": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "FullName": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "EmailId": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "EMIAmount": {
+                                    "type": "number",
+                                    "nullable": true
+                                  },
+                                  "District": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "DateOfBirth": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "CurrentAddress": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "Country": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "City": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "Branch": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "BankAssociated": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "ApproveOrReject": {
+                                    "nullable": true
+                                  },
+                                  "ApplicantsPanNo": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "ApplicantsAadhaarNo": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "AlternateContactNumber": {
+                                    "type": "number",
+                                    "nullable": true
+                                  },
+                                  "AccountNumberForSBI": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "AccountNumber": {
+                                    "type": "string",
+                                    "nullable": true
+                                  },
+                                  "AccountHolderName": {
+                                    "type": "string",
+                                    "nullable": true
+                                  }
+                                },
+                                "required": [
+                                  "valueChanged",
+                                  "uploadPANDoc",
+                                  "uploadAadharDocs",
+                                  "uploadAadharDoc",
+                                  "updatedAt",
+                                  "createdAt",
+                                  "_id",
+                                  "__v",
+                                  "UpdatedDate",
+                                  "Status",
+                                  "State",
+                                  "Scheme",
+                                  "ReferenceName",
+                                  "ProcessingFees",
+                                  "Pincode",
+                                  "Occupation",
+                                  "MobileNumber",
+                                  "LoanAmount",
+                                  "Lender",
+                                  "IsException",
+                                  "Interest",
+                                  "IFSCCode",
+                                  "FullName",
+                                  "EmailId",
+                                  "EMIAmount",
+                                  "District",
+                                  "DateOfBirth",
+                                  "CurrentAddress",
+                                  "Country",
+                                  "City",
+                                  "Branch",
+                                  "BankAssociated",
+                                  "ApproveOrReject",
+                                  "ApplicantsPanNo",
+                                  "ApplicantsAadhaarNo",
+                                  "AlternateContactNumber",
+                                  "AccountNumberForSBI",
+                                  "AccountNumber",
+                                  "AccountHolderName"
+                                ]
+                              }
+                            },
+                            "required": [
+                              "merchantUser"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "data"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+      },
+      "/api/overview/getodash": {
+        "get": {
+          "tags": ["Overview"],
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "resgetOverviewDashboard": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "TotalNumberOfHospital": {
+                                      "type": "number"
+                                    },
+                                    "TotalNumberOfAggregator": {
+                                      "type": "number"
+                                    },
+                                    "BussTotalRepayCases": {
+                                      "type": "number"
+                                    },
+                                    "BussTotalRepayAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussTotalInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "BussTotalInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussTotalDisbursedCases": {
+                                      "type": "number"
+                                    },
+                                    "BussTotalDisbursedAmount": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "TotalNumberOfHospital",
+                                    "TotalNumberOfAggregator",
+                                    "BussTotalRepayCases",
+                                    "BussTotalRepayAmount",
+                                    "BussTotalInProcessCases",
+                                    "BussTotalInProcessAmount",
+                                    "BussTotalDisbursedCases",
+                                    "BussTotalDisbursedAmount"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resgetDashboardForOverviewMonth": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "RejectCount": {
+                                      "type": "number"
+                                    },
+                                    "NoOfLeads": {
+                                      "type": "number"
+                                    },
+                                    "InvoiceApproved": {
+                                      "type": "number"
+                                    },
+                                    "Disbursedcount": {
+                                      "type": "number"
+                                    },
+                                    "DisbursedAmount": {
+                                      "type": "number"
+                                    },
+                                    "AmountOfLeads": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "RejectCount",
+                                    "NoOfLeads",
+                                    "InvoiceApproved",
+                                    "Disbursedcount",
+                                    "DisbursedAmount",
+                                    "AmountOfLeads"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resgetDashboardForOverviewHospital": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "totalhos": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "success": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "totalhos",
+                                    "success"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resgetDashboardForOverviewBussiness": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "RejectCount": {
+                                      "type": "number"
+                                    },
+                                    "NoOfLeads": {
+                                      "type": "number"
+                                    },
+                                    "InvoiceApproved": {
+                                      "type": "number"
+                                    },
+                                    "Disbursedcount": {
+                                      "type": "number"
+                                    },
+                                    "DisbursedAmount": {
+                                      "type": "number"
+                                    },
+                                    "AmountOfLeads": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "RejectCount",
+                                    "NoOfLeads",
+                                    "InvoiceApproved",
+                                    "Disbursedcount",
+                                    "DisbursedAmount",
+                                    "AmountOfLeads"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resgetDashboardForOverviewAggregator": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "totalAgg": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "success": {
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  "required": [
+                                    "totalAgg",
+                                    "success"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resgetDashboardForMonthProductWise": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "MonthProWiseTotalSupplierRejectCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalSupplierRejectAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalSupplierInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalSupplierInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalSupplierCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalSupplierAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalPatientRejectCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalPatientRejectAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalPatientInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalPatientInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalPatientCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalPatientAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalMerchantRejectCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalMerchantRejectAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalMerchantInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalMerchantInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalMerchantCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalMerchantAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalInvoiceRejectCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalInvoiceRejectAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalInvoiceInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalInvoiceInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalInvoiceCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthProWiseTotalInvoiceAmount": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "MonthProWiseTotalSupplierRejectCases",
+                                    "MonthProWiseTotalSupplierRejectAmount",
+                                    "MonthProWiseTotalSupplierInProcessCases",
+                                    "MonthProWiseTotalSupplierInProcessAmount",
+                                    "MonthProWiseTotalSupplierCases",
+                                    "MonthProWiseTotalSupplierAmount",
+                                    "MonthProWiseTotalPatientRejectCases",
+                                    "MonthProWiseTotalPatientRejectAmount",
+                                    "MonthProWiseTotalPatientInProcessCases",
+                                    "MonthProWiseTotalPatientInProcessAmount",
+                                    "MonthProWiseTotalPatientCases",
+                                    "MonthProWiseTotalPatientAmount",
+                                    "MonthProWiseTotalMerchantRejectCases",
+                                    "MonthProWiseTotalMerchantRejectAmount",
+                                    "MonthProWiseTotalMerchantInProcessCases",
+                                    "MonthProWiseTotalMerchantInProcessAmount",
+                                    "MonthProWiseTotalMerchantCases",
+                                    "MonthProWiseTotalMerchantAmount",
+                                    "MonthProWiseTotalInvoiceRejectCases",
+                                    "MonthProWiseTotalInvoiceRejectAmount",
+                                    "MonthProWiseTotalInvoiceInProcessCases",
+                                    "MonthProWiseTotalInvoiceInProcessAmount",
+                                    "MonthProWiseTotalInvoiceCases",
+                                    "MonthProWiseTotalInvoiceAmount"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resgetDashboardForMonth": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "MonthTotalInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthTotalInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthTotalDisbursedCases": {
+                                      "type": "number"
+                                    },
+                                    "MonthTotalDisbursedAmount": {
+                                      "type": "number"
+                                    },
+                                    "MonthHApprovedCases": {
+                                      "type": "number"
+                                    },
+                                    "ExpectedAmount": {
+                                      "type": "number"
+                                    },
+                                    "ActualAmount": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "MonthTotalInProcessCases",
+                                    "MonthTotalInProcessAmount",
+                                    "MonthTotalDisbursedCases",
+                                    "MonthTotalDisbursedAmount",
+                                    "MonthHApprovedCases",
+                                    "ExpectedAmount",
+                                    "ActualAmount"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resgetDashboardForBussinessProductWise": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "BussProWiseTotalSupplierRejectCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalSupplierRejectAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalSupplierInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalSupplierInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalSupplierCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalSupplierAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalPatientRejectCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalPatientRejectAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalPatientInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalPatientInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalPatientCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalPatientAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalMerchantRejectCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalMerchantRejectAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalMerchantInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalMerchantInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalMerchantCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalMerchantAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalInvoiceRejectCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalInvoiceRejectAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalInvoiceInProcessCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalInvoiceInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalInvoiceCases": {
+                                      "type": "number"
+                                    },
+                                    "BussProWiseTotalInvoiceAmount": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "BussProWiseTotalSupplierRejectCases",
+                                    "BussProWiseTotalSupplierRejectAmount",
+                                    "BussProWiseTotalSupplierInProcessCases",
+                                    "BussProWiseTotalSupplierInProcessAmount",
+                                    "BussProWiseTotalSupplierCases",
+                                    "BussProWiseTotalSupplierAmount",
+                                    "BussProWiseTotalPatientRejectCases",
+                                    "BussProWiseTotalPatientRejectAmount",
+                                    "BussProWiseTotalPatientInProcessCases",
+                                    "BussProWiseTotalPatientInProcessAmount",
+                                    "BussProWiseTotalPatientCases",
+                                    "BussProWiseTotalPatientAmount",
+                                    "BussProWiseTotalMerchantRejectCases",
+                                    "BussProWiseTotalMerchantRejectAmount",
+                                    "BussProWiseTotalMerchantInProcessCases",
+                                    "BussProWiseTotalMerchantInProcessAmount",
+                                    "BussProWiseTotalMerchantCases",
+                                    "BussProWiseTotalMerchantAmount",
+                                    "BussProWiseTotalInvoiceRejectCases",
+                                    "BussProWiseTotalInvoiceRejectAmount",
+                                    "BussProWiseTotalInvoiceInProcessCases",
+                                    "BussProWiseTotalInvoiceInProcessAmount",
+                                    "BussProWiseTotalInvoiceCases",
+                                    "BussProWiseTotalInvoiceAmount"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "_id": {
+                              "type": "string"
+                            },
+                            "__v": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "resgetOverviewDashboard",
+                            "resgetDashboardForOverviewMonth",
+                            "resgetDashboardForOverviewHospital",
+                            "resgetDashboardForOverviewBussiness",
+                            "resgetDashboardForOverviewAggregator",
+                            "resgetDashboardForMonthProductWise",
+                            "resgetDashboardForMonth",
+                            "resgetDashboardForBussinessProductWise",
+                            "_id",
+                            "__v"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/loan/getmdash": {
+        "get": {
+        "tags": ["Loan"],
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "resRejectedGraphToMerchant": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "message": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "message"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resInProcessGraphToMerchant": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "message": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "message"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resDisbursedGraphAmountToMerchant": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "message": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "message"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "resDashboard": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "TotalUploadedInvoicesLoanAmount": {
+                                      "type": "number"
+                                    },
+                                    "TotalUploadedInvoices": {
+                                      "type": "number"
+                                    },
+                                    "TotalRejectedInvoicesLoansAmount": {
+                                      "type": "number"
+                                    },
+                                    "TotalRejectedInvoices": {
+                                      "type": "number"
+                                    },
+                                    "TotalNumberOfAggregator": {
+                                      "type": "number"
+                                    },
+                                    "TotalDisbursedLoanamount": {
+                                      "type": "number"
+                                    },
+                                    "TotalDisbursedInvoice": {
+                                      "type": "number"
+                                    },
+                                    "LoanInProcessAmount": {
+                                      "type": "number"
+                                    },
+                                    "LoanInProcess": {
+                                      "type": "number"
+                                    },
+                                    "AverageTicketSize": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "TotalUploadedInvoicesLoanAmount",
+                                    "TotalUploadedInvoices",
+                                    "TotalRejectedInvoicesLoansAmount",
+                                    "TotalRejectedInvoices",
+                                    "TotalNumberOfAggregator",
+                                    "TotalDisbursedLoanamount",
+                                    "TotalDisbursedInvoice",
+                                    "LoanInProcessAmount",
+                                    "LoanInProcess",
+                                    "AverageTicketSize"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "jobLastUpdatedOn": {
+                              "type": "string"
+                            },
+                            "disbursedGraphRes": {
+                              "type": "object",
+                              "properties": {
+                                "data": {
+                                  "type": "object",
+                                  "properties": {
+                                    "success": {
+                                      "type": "boolean"
+                                    },
+                                    "message": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  },
+                                  "required": [
+                                    "success",
+                                    "message"
+                                  ]
+                                }
+                              },
+                              "required": [
+                                "data"
+                              ]
+                            },
+                            "_id": {
+                              "type": "string"
+                            },
+                            "__v": {
+                              "type": "number"
+                            }
+                          },
+                          "required": [
+                            "resRejectedGraphToMerchant",
+                            "resInProcessGraphToMerchant",
+                            "resDisbursedGraphAmountToMerchant",
+                            "resDashboard",
+                            "jobLastUpdatedOn",
+                            "disbursedGraphRes",
+                            "_id",
+                            "__v"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  }
+                }
+              }
+            },
+            "502": {
+              "description": "",
+              "content": {}
+            }
+          }
+        }
+      },
+      "/api/patient/getExcelLoanApprove": {
+        "get": {
+          "tags": ["Patient"],
+          "parameters": [           
+             {
+                 "name": "pageNumber & pageSize", 
+                 "in": "query",
+                 "schema": {
+                   "type": "object",
+                   "properties": {
+                     "pageNumber": {
+                         "type": "string"
+                       },
+                     "pageSize": {
+                       "type": "string"
+                     }
+                   }
+                 },
+                 "required": true, 
+                 "description": "Please enter page number and page size"
+               }],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "success": {
+                        "type": "boolean"
+                      },
+                      "numberOfPages": {
+                        "type": "number"
+                      },
+                      "data": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "updatedAt": {
+                              "type": "string"
+                            },
+                            "createdAt": {
+                              "type": "string"
+                            },
+                            "_id": {
+                              "type": "string"
+                            },
+                            "__v": {
+                              "type": "number"
+                            },
+                            "Status": {
+                              "type": "string"
+                            },
+                            "State": {
+                              "type": "string"
+                            },
+                            "Scheme": {
+                              "type": "string"
+                            },
+                            "RepaymentDate6th": {
+                              "type": "string"
+                            },
+                            "RepaymentDate5th": {
+                              "type": "string"
+                            },
+                            "RepaymentDate4th": {
+                              "type": "string"
+                            },
+                            "RepaymentDate3rd": {
+                              "type": "string"
+                            },
+                            "RepaymentDate2nd": {
+                              "type": "string"
+                            },
+                            "RepaymentDate1st": {
+                              "type": "string"
+                            },
+                            "Pincode": {
+                              "type": "string"
+                            },
+                            "Occupation": {
+                              "type": "string"
+                            },
+                            "MobileNumber": {
+                              "type": "string"
+                            },
+                            "LoanAmount": {
+                              "type": "number"
+                            },
+                            "LLCode": {
+                              "type": "string"
+                            },
+                            "KOCode": {
+                              "type": "string"
+                            },
+                            "FullName": {
+                              "type": "string"
+                            },
+                            "EmailId": {
+                              "type": "string"
+                            },
+                            "EMIAmount": {
+                              "type": "number"
+                            },
+                            "DisbursementDate": {
+                              "type": "string"
+                            },
+                            "DateOfBirth": {
+                              "type": "string"
+                            },
+                            "CurrentAddress": {
+                              "type": "string"
+                            },
+                            "City": {
+                              "type": "string"
+                            },
+                            "BankAssociated": {
+                              "type": "string"
+                            },
+                            "ApplicationDate": {
+                              "type": "string"
+                            },
+                            "ApplicantsPanNo": {
+                              "type": "string"
+                            },
+                            "ApplicantsAadhaarNo": {
+                              "type": "string"
+                            },
+                            "Aggregator": {
+                              "type": "string"
+                            },
+                            "ActionNeeded": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "updatedAt",
+                            "createdAt",
+                            "_id",
+                            "__v",
+                            "Status",
+                            "State",
+                            "Scheme",
+                            "Pincode",
+                            "Occupation",
+                            "MobileNumber",
+                            "LoanAmount",
+                            "LLCode",
+                            "KOCode",
+                            "FullName",
+                            "EmailId",
+                            "DateOfBirth",
+                            "CurrentAddress",
+                            "City",
+                            "BankAssociated",
+                            "ApplicationDate",
+                            "ApplicantsPanNo",
+                            "ApplicantsAadhaarNo",
+                            "Aggregator",
+                            "ActionNeeded"
+                          ]
+                        }
+                      }
+                    },
+                    "required": [
+                      "success",
+                      "numberOfPages",
+                      "data"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/patient/downloadTemplate": {
+        "get": {
+          "tags": ["Patient"],
+          "responses": {
+            "200": {
+              "description": "",
+              "content": {
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/patientDash/getPatientDash": {
+        "get": {
+          "tags": ["Patient Dash"],
+          "parameters": [           
+             {
+                 "name": "pageNumber & pageSize", 
+                 "in": "query",
+                 "schema": {
+                   "type": "object",
+                   "properties": {
+                     "dateFrom": {
+                         "type": "string"
+                       },
+                     "dateTo": {
+                       "type": "string"
+                     }
+                   }
+                 },
+                 "required": true, 
+                 "description": "Please enter page number and page size"
+               }],
+          "responses": {
+            "201": {
+              "description": "",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "data": {
+                        "type": "array",
+                        "items": {}
+                      }
+                    },
+                    "required": [
+                      "data"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
