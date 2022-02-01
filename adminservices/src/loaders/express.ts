@@ -106,7 +106,7 @@ export default ({ app }: { app: express.Application }) => {
   }
  app.use(requestIntercept)
 
-  app.use(config.api.prefix, routes());
+  app.use(config.api.prefix,responseInterceptor, routes());
 
 
   // API Documentation
